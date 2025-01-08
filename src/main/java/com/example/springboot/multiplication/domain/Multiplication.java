@@ -1,8 +1,19 @@
 package com.example.springboot.multiplication.domain;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * The multiplication class
  */
+@RequiredArgsConstructor
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class Multiplication {
 	
 	private int argA;
@@ -11,42 +22,8 @@ public class Multiplication {
 	//the result of the calculation
 	private int result;
 
-	public Multiplication(int argA, int argB) {
-		super();
-		this.argA = argA;
-		this.argB = argB;
-		this.result = argA * argB;
+	public Multiplication() {
+		//this inits the args of the all args constructor
+		this(0,0);
 	}
-
-	@Override
-	public String toString() {
-		return "Multiplication [argA=" + argA + ", argB=" + argB + ", result=" + result + "]";
-	}
-
-	public int getArgA() {
-		return argA;
-	}
-
-	public void setArgA(int argA) {
-		this.argA = argA;
-	}
-
-	public int getArgB() {
-		return argB;
-	}
-
-	public void setArgB(int argB) {
-		this.argB = argB;
-	}
-
-	public int getResult() {
-		return result;
-	}
-
-	public void setResult(int result) {
-		this.result = result;
-	}
-
-	
-
 }
