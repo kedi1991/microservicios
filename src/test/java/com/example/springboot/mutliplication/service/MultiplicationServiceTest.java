@@ -30,13 +30,13 @@ public class MultiplicationServiceTest {
 	public void getRandomNumberTest(){
 		
 		//given that
-		given(randomGeneratorService.generateRandomNumber()).willReturn(10, 20);
+		given(randomGeneratorService.generateRandomNumber()).willReturn(5, 4);
 		//when
 		Multiplication multiplication = multiplicationService.createRandomMultiplication();
 		//then
-		assertThat(multiplication.getArgA()).isEqualTo(10);
-		assertThat(multiplication.getArgB()).isEqualTo(20);
-		assertThat(multiplication.getResult()).isEqualTo(200);
+		assertThat(multiplication.getArgA()).isEqualTo(5);
+		assertThat(multiplication.getArgB()).isEqualTo(4);
+		assertThat(multiplication.getResult()).isEqualTo(20);
 
 	}
 	
