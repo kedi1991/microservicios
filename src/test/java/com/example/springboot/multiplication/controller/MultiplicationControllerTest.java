@@ -41,7 +41,7 @@ public class MultiplicationControllerTest {
 	@Test
 	public void getRandomMultiplicationtest() throws Exception {
 		
-		//given
+		//given : we are testing the controller and not the service.
 		given(multiplicationService.createRandomMultiplication()).willReturn(new Multiplication(4, 5));
 		
 		//when
