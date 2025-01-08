@@ -1,5 +1,6 @@
 package com.example.springboot.multiplication.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -16,11 +17,9 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Multiplication {
 	
-	private int argA;
-	private int argB;
+	private final int argA;
+	private final int argB;
 	
-	//the result of the calculation
-	private int result;
 
 	public Multiplication() {
 		//this inits the args of the all args constructor

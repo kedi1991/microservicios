@@ -36,7 +36,7 @@ public class MultiplicationServiceTest {
 		//then
 		assertThat(multiplication.getArgA()).isEqualTo(5);
 		assertThat(multiplication.getArgB()).isEqualTo(4);
-		assertThat(multiplication.getResult()).isEqualTo(20);
+		//assertThat(multiplication.getResult()).isEqualTo(20);
 
 	}
 	
