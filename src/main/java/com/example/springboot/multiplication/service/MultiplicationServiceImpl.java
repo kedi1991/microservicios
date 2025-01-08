@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.springboot.multiplication.domain.Multiplication;
+import com.example.springboot.multiplication.domain.MultiplicationResultAttempt;
 
 @Service
 public class MultiplicationServiceImpl implements MultiplicationService{
@@ -22,5 +23,10 @@ public class MultiplicationServiceImpl implements MultiplicationService{
 		int argB = randomGeneratorService.generateRandomNumber();
 		
 		return new Multiplication(argA, argB);
+	}
+
+	@Override
+	public boolean checkAttempt(MultiplicationResultAttempt resultAttempt) {
+		return false;
 	}
 }
