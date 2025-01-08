@@ -1,11 +1,9 @@
-package com.example.springboot.mutliplication.service;
+package com.example.springboot.multiplication.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.springboot.multiplication.domain.Multiplication;
-import com.example.springboot.multiplication.service.MultiplicationService;
-import com.example.springboot.multiplication.service.RandomGeneratorService;
 
 @Service
 public class MultiplicationServiceImpl implements MultiplicationService{
