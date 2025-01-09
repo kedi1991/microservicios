@@ -9,7 +9,7 @@ import com.example.springboot.multiplication.domain.Multiplication;
 import com.example.springboot.multiplication.service.MultiplicationService;
 
 @RestController
-@RequestMapping("multiplication")
+@RequestMapping("multiplications")
 public class MultiplicationController {
 
 	private final MultiplicationService multiplicationService;

@@ -45,7 +45,7 @@ public class MultiplicationControllerTest {
 		given(multiplicationService.createRandomMultiplication()).willReturn(new Multiplication(4, 5));
 		
 		//when
-		MockHttpServletResponse response = mvc.perform(get("/multiplication/random")
+		MockHttpServletResponse response = mvc.perform(get("/multiplications/random")
 				.accept(MediaType.APPLICATION_JSON))
 				.andReturn()
 				.getResponse();
