@@ -27,5 +27,4 @@ public final class MultiplicationResultAttemptController {
 	public static final class ResultResponse{
 		private final boolean correct;
 	}
-
 }
