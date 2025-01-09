@@ -69,6 +69,8 @@ public class MultiplicationResultAttemptControllerTest {
 				.content(jsonResult.write(attempt).getJson())
 				).andReturn().getResponse();
 		
+		System.out.println(response);
+		
 		//then
 		assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
 		assertThat(response.getContentAsString()).isEqualTo(jsonResponse.write(new ResultResponse(correct)).getJson());
