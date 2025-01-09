@@ -59,9 +59,10 @@ public class MultiplicationResultAttemptControllerTest {
 	void getParametizedtest(final boolean correct) throws IOException, Exception {
 		//given :: we are note testing the service itself
 		given(multiplicationService.checkAttempt(any(MultiplicationResultAttempt.class))).willReturn(correct);
-		User user = new User("kedi");
 		
+		User user = new User("kedi");
 		Multiplication multiplication = new Multiplication(2, 5);
+		
 		MultiplicationResultAttempt attempt = new MultiplicationResultAttempt(user, multiplication, 10, correct);
 		
 		//when
@@ -73,7 +74,7 @@ public class MultiplicationResultAttemptControllerTest {
 		
 		//then
 		assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-		assertThat(response.getContentAsString()).isEqualTo(jsonResponse.write(new ResultResponse(correct)).getJson());
+		assertThat(response.getContentAsString()).isEqualTo(jsonResult.write(new MultiplicationResultAttempt(attempt.getUser(), attempt.getMultiplication(), attempt.getResultAttempt(), correct)).getJson());
 		
 	}
 }
