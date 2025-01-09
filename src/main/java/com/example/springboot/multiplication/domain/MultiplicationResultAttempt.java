@@ -14,11 +14,13 @@ public class MultiplicationResultAttempt {
 	private final User user;
 	private final Multiplication multiplication;
 	private final int resultAttempt;
+	private final boolean correct;
 	
 	//empty constructor for JSON de-serilization
 	public MultiplicationResultAttempt() {
 		this.user = null;
 		this.multiplication = null;
 		this.resultAttempt = -1;
+		correct = false;
 	}
 }

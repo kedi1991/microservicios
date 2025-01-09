@@ -62,7 +62,7 @@ public class MultiplicationResultAttemptControllerTest {
 		User user = new User("kedi");
 		
 		Multiplication multiplication = new Multiplication(2, 5);
-		MultiplicationResultAttempt attempt = new MultiplicationResultAttempt(user, multiplication, 10);
+		MultiplicationResultAttempt attempt = new MultiplicationResultAttempt(user, multiplication, 10, correct);
 		
 		//when
 		MockHttpServletResponse response = mvc.perform(post("/results").accept(MediaType.APPLICATION_JSON)
