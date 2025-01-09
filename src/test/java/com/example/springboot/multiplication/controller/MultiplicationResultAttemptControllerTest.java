@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.any;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
@@ -58,7 +58,7 @@ public class MultiplicationResultAttemptControllerTest {
 	
 	void getParametizedtest(final boolean correct) throws IOException, Exception {
 		//given :: we are note testing the service itself
-		given(multiplicationService.checkAttempt(new MultiplicationResultAttempt(new User("okurut"), new Multiplication(2, 5), 10))).willReturn(correct);
+		given(multiplicationService.checkAttempt(any(MultiplicationResultAttempt.class))).willReturn(correct);
 		User user = new User("kedi");
 		
 		Multiplication multiplication = new Multiplication(2, 5);
