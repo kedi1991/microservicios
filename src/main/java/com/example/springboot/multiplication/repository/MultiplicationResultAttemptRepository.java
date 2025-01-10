@@ -8,5 +8,5 @@ import com.example.springboot.multiplication.domain.MultiplicationResultAttempt;
 
 public interface MultiplicationResultAttemptRepository extends CrudRepository<MultiplicationResultAttempt, Long>{
 
-	List<MultiplicationResultAttempt> findTop5ByUseraAliasOrderByIdDesc(String userAlias);
+	List<MultiplicationResultAttempt> findTop5ByUserAliasOrderByIdDesc(String userAlias);
 }

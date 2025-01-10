@@ -1,5 +1,6 @@
 package com.example.springboot.mutliplication.service;
 
+import org.assertj.core.util.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
+import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -87,6 +89,25 @@ public class MultiplicationServiceImplTest {
 		//assert
 		assertThat(attemptResult).isFalse();	
 		verify(multiplicationResultAttemptRepository).save(attempt);
+
+	}
+	
+	@Test
+	public void retrieveStatsTest() {
+		// given
+		Multiplication multiplication = new Multiplication(50, 60);
+		User user = new User("john_doe");
+		MultiplicationResultAttempt attempt1 = new MultiplicationResultAttempt(user, multiplication, 3010, false);
+		MultiplicationResultAttempt attempt2 = new	MultiplicationResultAttempt(user, multiplication, 3051, false);
+	
+		List<MultiplicationResultAttempt> latestAttempts =
+		Lists.newArrayList(attempt1, attempt2);
+	
+		given(userRepository.findByAlias("john_doe")).willReturn(Optional.empty());
+		given(multiplicationResultAttemptRepository.findTop5ByUserAliasOrderByIdDesc("john_doe")).willReturn(latestAttempts);
+	
+		// when
+		List<MultiplicationResultAttempt> latestAttemptsResult = multiplicationServiceImpl.getStatsForUser("john_doe");
 
 	}
 }

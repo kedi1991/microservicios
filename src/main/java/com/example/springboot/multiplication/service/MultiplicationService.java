@@ -1,5 +1,7 @@
 package com.example.springboot.multiplication.service;
 
+import java.util.List;
+
 import com.example.springboot.multiplication.domain.Multiplication;
 import com.example.springboot.multiplication.domain.MultiplicationResultAttempt;
 
@@ -16,4 +18,7 @@ public interface MultiplicationService {
 	 * Returns true of the result is correct, false otherwise
 	 * */
 	boolean checkAttempt(MultiplicationResultAttempt resultAttempt);
+	
+	public List<MultiplicationResultAttempt> getStatsForUser(String userAlias);
+
 }

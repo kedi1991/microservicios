@@ -1,5 +1,6 @@
 package com.example.springboot.multiplication.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import com.example.springboot.multiplication.domain.MultiplicationResultAttempt;
 import com.example.springboot.multiplication.domain.User;
 import com.example.springboot.multiplication.repository.MultiplicationResultAttemptRepository;
 import com.example.springboot.multiplication.repository.UserRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class MultiplicationServiceImpl implements MultiplicationService{
@@ -34,6 +37,7 @@ public class MultiplicationServiceImpl implements MultiplicationService{
 		return new Multiplication(argA, argB);
 	}
 
+	@Transactional
 	@Override
 	public boolean checkAttempt(MultiplicationResultAttempt resultAttempt) {
 		
@@ -48,5 +52,10 @@ public class MultiplicationServiceImpl implements MultiplicationService{
 		attemptRepository.save(checkedAttempt);
 		
 		return resultAttempt.getResultAttempt() == resultAttempt.getMultiplication().getArgA() * resultAttempt.getMultiplication().getArgB();
+	}
+	
+	@Override
+	public List<MultiplicationResultAttempt> getStatsForUser(String userAlias){
+		return attemptRepository.findTop5ByUserAliasOrderByIdDesc(userAlias);
 	}
 }
