@@ -19,9 +19,9 @@ function updateStats(alias) {
 													row.id + 
 													'</td>' + 
 													'<td>' + 
-													row.multiplication.factorA + 
+													row.multiplication.argA  + 
 													' x ' + 
-													row.multiplication.factorB + 
+													row.multiplication.argB  + 
 													'</td>' + 
 													'<td>' + 
 													row.resultAttempt + 
@@ -64,6 +64,7 @@ $(document).ready(function() {
 
 				if (result.correct) {
 					$('.result-message').empty().append("The result is correct! Congratulations!");
+					updateStats(result.user.alias);
 				} else {
 					$('.result-message').empty().append("Oops that's not correct! But keep trying!");
 				}
